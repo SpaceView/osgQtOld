@@ -16,6 +16,7 @@
 #include <osgViewer/ViewerBase>
 #include <QInputEvent>
 #include <QPointer>
+#include <QOpenGLContext>
 
 #if (QT_VERSION>=QT_VERSION_CHECK(4, 6, 0))
 # define USE_GESTURES
@@ -835,7 +836,20 @@ bool GraphicsWindowQt::makeCurrentImplementation()
     if (_widget->getNumDeferredEvents() > 0)
         _widget->processDeferredEvents();
 
-    _widget->makeCurrent();
+    /*
+    https://bugreports.qt.io/browse/QTBUG-93173
+    auto* _context = _widget->context()->contextHandle();
+    if (nullptr == _context || !_context->isValid()){
+        return;
+    }
+    */
+    QOpenGLContext* _context = _widget->context()->contextHandle();
+    if (nullptr == _context || !_context->isValid())
+    {
+        return false;
+    }
+
+    _widget->makeCurrent();    
 
     return true;
 }

@@ -1,5 +1,12 @@
-[![Build Status](https://travis-ci.org/openscenegraph/OpenSceneGraph.svg?branch=master)](https://travis-ci.org/openscenegraph/OpenSceneGraph)
-[![Coverity Status](https://scan.coverity.com/projects/9159/badge.svg)](https://scan.coverity.com/projects/openscenegraph-openscenegraph)
+This is an updated version of osgQt, compatible with Qt5.15.0.
+
+The old version is at https://github.com/mathieu/osgQt
+
+You can refer to my post for compiling info: https://blog.csdn.net/tanmx219/article/details/123975689
+
+
+
+Below info is from the original readme file
 
 ### Introduction
 
@@ -18,9 +25,9 @@ For support subscribe to our public mailing list or forum, details at:
 For the impatient, we've included quick build instructions below, these
 are are broken down is three parts:
 
-  1) General notes on building the OpenSceneGraph
-  2) OSX release notes
-  3) iOS release notes
+1) General notes on building the OpenSceneGraph
+2) OSX release notes
+3) iOS release notes
 
 If details below are not sufficient then head over to the openscenegraph.org
 to the Documentation/GettingStarted and Documentation/PlatformSpecifics sections for
@@ -84,7 +91,6 @@ information read "Getting Started" guide:
 
     http://www.openscenegraph.org/index.php/documentation/10-getting-started
 
-
 ### Section 2. Release notes on OSX build, by Eric Sokolowsky, August 5, 2008
 
 There are several ways to compile OpenSceneGraph under OSX.  The
@@ -120,7 +126,6 @@ There is an Xcode directory in the base of the OSG software
 distribution, but its future is limited, and will be discontinued once
 the CMake project generator completely implements its functionality.
 
-
 APPLICATION BUNDLES (.app bundles)
 
 The example programs when built as application bundles only contain the
@@ -140,7 +145,6 @@ do not require command-line arguments will successfully run. The
 executable file within the .app bundle can be run from the command-line
 if command-line arguments are needed.
 
-
 64-BIT APPLICATION SUPPORT
 
 OpenSceneGraph will not compile successfully when OSG_WINDOWING_SYSTEM is
@@ -156,7 +160,6 @@ jpeg, tiff, png, and gif will not work, nor will animations dependent on
 Quicktime. A new ImageIO-based plugin is being developed to handle the
 still images, and a QTKit plugin will need to be developed to handle
 animations.
-
 
 ### Section 3. Release notes on iOS build, by Thomas Hoghart
 
@@ -203,6 +206,7 @@ Here's an example for the command-line:
     -D DYNAMIC_OPENTHREADS:BOOL=OFF .
 
 Known issues:
+
 * When Linking final app against ive plugin, you need to add -lz to
   the 'Other linker flags' list.
 * Apps and exes don't get created
